@@ -1,0 +1,29 @@
+{
+  "name": "mini-project-3.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+}
+,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourmanvonte/mini-project-3.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourmanvonte/mini-project-3.0/issues"
+  },
+  "homepage": "https://github.com/yourmanvonte/mini-project-3.0#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.0",
+    "nodemon": "^3.1.10"
+  }
+}
