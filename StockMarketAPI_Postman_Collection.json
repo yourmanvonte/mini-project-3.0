@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Stock Market API (Alpha Vantage)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Stocks (DB Cached)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/stocks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks"]
+        }
+      }
+    },
+    {
+      "name": "Get Stock by ID (DB Cached)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/stocks/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks", ":id"]
+        },
+        "description": "Replace ':id' with a valid MongoDB Stock ID"
+      }
+    },
+    {
+      "name": "Get Real-Time Stock by Symbol (Alpha Vantage Live)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/stocks/symbol/:symbol",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks", "symbol", ":symbol"]
+        },
+        "description": "Replace ':symbol' with a stock symbol like AAPL or TSLA"
+      }
+    },
+    {
+      "name": "Create New Stock (Manual Insert)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"symbol\": \"TEST\",\n    \"name\": \"Test Company\",\n    \"price\": 123.45,\n    \"date\": \"2025-08-05\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/stocks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks"]
+        }
+      }
+    },
+    {
+      "name": "Update Stock by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"price\": 200.50\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/stocks/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks", ":id"]
+        },
+        "description": "Replace ':id' with a valid MongoDB Stock ID"
+      }
+    },
+    {
+      "name": "Delete Stock by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/stocks/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "stocks", ":id"]
+        },
+        "description": "Replace ':id' with a valid MongoDB Stock ID"
+      }
+    }
+  ]
+}
