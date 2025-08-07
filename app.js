@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const stockRoutes = require("./routes/stockRoutes");
+const userRoutes = require("./routes/userRoutes");
+const savedSymbolRoutes = require("./routes/savedSymbolRoutes"); 
 const { initializeStocks } = require("./controllers/stockController");
 require("dotenv").config();
 
@@ -16,6 +18,8 @@ mongoose
   .catch((err) => console.error(err));
 
 app.use("/api/stocks", stockRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/saved-symbols", savedSymbolRoutes);
 
 app.get("/api", (req, res) => {
   res.send("Welcome to the Stock Market API");
