@@ -19,7 +19,6 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(400).json({ error: "Invalid credentials" });
     }
@@ -31,6 +30,15 @@ const loginUser = async (req, res) => {
     }
 
     res.status(200).json({ message: "Login successful", userId: user._id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}, "-passwordHash");
+    res.json(users);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -49,5 +57,6 @@ const getUserSavedSymbols = async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
+  getAllUsers,
   getUserSavedSymbols,
 };
